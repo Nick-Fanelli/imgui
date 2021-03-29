@@ -21,7 +21,9 @@ file(GLOB_RECURSE SRC_FILES
 	"imstb_rectpack.h"
 	"imstb_textedit.h"
 	"imstb_truetype.h"
+)
 
+file(GLOB_RECURSE BACKENDS
 	# Specific Backends
 	"backends/imgui_impl_opengl3.h"
 	"backends/imgui_impl_opengl3.cpp"
@@ -29,6 +31,7 @@ file(GLOB_RECURSE SRC_FILES
 	"backends/imgui_impl_glfw.cpp"
 )
 
-add_library(ImGUI ${SRC_FILES})
+add_library(ImGUI ${SRC_FILES} ${BACKENDS})
 
 target_include_directories(ImGUI PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(ImGUI PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/backends)

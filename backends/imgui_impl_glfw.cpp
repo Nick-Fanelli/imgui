@@ -13,7 +13,8 @@
 // Issues:
 //  [ ] Platform: Multi-viewport support: ParentViewportID not honored, and so io.ConfigViewportsNoDefaultParent has no effect (minor).
 
-// You can copy and use unmodified imgui_impl_* files in your project. See examples/ folder for examples of using this.
+// You can use unmodified imgui_impl_* files in your project. See examples/ folder for examples of using this. 
+// Prefer including the entire imgui/ repository into your project (either as a copy or as a submodule), and only build the backends you need.
 // If you are new to Dear ImGui, read documentation from the docs/ folder + read the top of imgui.cpp.
 // Read online: https://github.com/ocornut/imgui/tree/master/docs
 
@@ -135,15 +136,18 @@ void ImGui_ImplGlfw_KeyCallback(GLFWwindow* window, int key, int scancode, int a
         g_PrevUserCallbackKey(window, key, scancode, action, mods);
 
     ImGuiIO& io = ImGui::GetIO();
-    if (action == GLFW_PRESS)
+    if (key >= 0 && key < IM_ARRAYSIZE(io.KeysDown))
     {
-        io.KeysDown[key] = true;
-        g_KeyOwnerWindows[key] = window;
-    }
-    if (action == GLFW_RELEASE)
-    {
-        io.KeysDown[key] = false;
-        g_KeyOwnerWindows[key] = NULL;
+        if (action == GLFW_PRESS)
+        {
+            io.KeysDown[key] = true;
+            g_KeyOwnerWindows[key] = window;
+        }
+        if (action == GLFW_RELEASE)
+        {
+            io.KeysDown[key] = false;
+            g_KeyOwnerWindows[key] = NULL;
+        }
     }
 
     // Modifiers are not reliable across systems

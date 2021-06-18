@@ -28,4 +28,5 @@ add_library(ImGUI ${SRC_FILES} ${BACKENDS})
 target_include_directories(ImGUI PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
 target_include_directories(ImGUI PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/backends)
 
+target_link_libraries(ImGUI glad)
 target_link_libraries(ImGUI glfw)

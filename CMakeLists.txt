@@ -21,6 +21,10 @@ file(GLOB_RECURSE SRC_FILES
 	"backends/imgui_impl_opengl3.cpp"
 	"backends/imgui_impl_glfw.h"
 	"backends/imgui_impl_glfw.cpp"
+
+	# Misc Files
+	"misc/cpp/imgui_stdlib.h"
+	"misc/cpp/imgui_stdlib.cpp"
 )
 
 add_library(ImGUI ${SRC_FILES} ${BACKENDS})

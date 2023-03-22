@@ -7,19 +7,22 @@ project "ImGui"
 	targetdir ( "%{wks.location}/build/" .. outputdir .. "/%{prj.name}")
     objdir ( "%{wks.location}/build-int/" .. outputdir .. "/%{prj.name}")
 
+	includedirs {
+        ".",
+        "../glfw/include",
+        "../glad"
+    }
+
 	files
 	{
-		"imconfig.h",
-		"imgui.h",
-		"imgui.cpp",
-		"imgui_draw.cpp",
-		"imgui_internal.h",
-		"imgui_tables.cpp",
-		"imgui_widgets.cpp",
-		"imstb_rectpack.h",
-		"imstb_textedit.h",
-		"imstb_truetype.h",
-		"imgui_demo.cpp"
+		"*.h",
+        "*.cpp",
+		"backends/imgui_impl_glfw.h",
+		"backends/imgui_impl_glfw.cpp",
+		"backends/imgui_impl_opengl3.h",
+		"backends/imgui_impl_opengl3.cpp",
+        "misc/cpp/imgui_stdlib.h",
+        "misc/cpp/imgui_stdlib.cpp"
 	}
 
 	filter "system:windows"

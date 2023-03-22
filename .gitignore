@@ -1,6 +1,8 @@
 ## OSX artifacts
 .DS_Store
 
+Makefile
+
 ## Dear ImGui artifacts
 imgui.ini
 

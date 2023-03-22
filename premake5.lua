@@ -2,6 +2,7 @@ project "ImGui"
 	kind "StaticLib"
 	language "C++"
     staticruntime "off"
+	cppdialect "C++17"
 
 	targetdir ( "%{wks.location}/build/" .. outputdir .. "/%{prj.name}")
     objdir ( "%{wks.location}/build-int/" .. outputdir .. "/%{prj.name}")
@@ -23,12 +24,10 @@ project "ImGui"
 
 	filter "system:windows"
 		systemversion "latest"
-		cppdialect "C++17"
 
 	filter "system:linux"
 		pic "On"
 		systemversion "latest"
-		cppdialect "C++17"
 
 	filter "configurations:Debug"
 		runtime "Debug"
